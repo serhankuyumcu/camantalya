@@ -1,0 +1,58 @@
+---
+// Layout.astro: Tüm sayfalar için ortak yapı
+// Header ve Footer React bileşenlerini import ediyoruz.
+// Bu bileşenlerin src/components/ klasöründe Header.jsx ve Footer.jsx olarak var olduğunu varsayıyoruz.
+import  {Header} from '../components/Header.jsx'; 
+import {Footer} from '../components/Footer.jsx'; 
+
+interface Props {
+	title: string;
+	description: string;
+	keywords: string;
+}
+
+const { 
+    title = 'Antalya Cam Balkon - Lider Çözümler', 
+    description = 'Antalya ve çevresinde en kaliteli katlanır cam balkon, sürme sistemler ve kış bahçesi çözümleri.',
+    keywords = 'cam balkon, antalya cam, katlanır cam, kış bahçesi'
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+
+    <!-- SEO Meta Etiketleri -->
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+
+    <!-- Tailwind CSS ve Font Ayarları -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+</head>
+<body>
+    
+    {/* HEADER BİLEŞENİ BURADA KULLANILIYOR */}
+    {/* client:load, etkileşimli React bileşenlerinin doğru çalışması için gereklidir. */}
+    <Header client:load /> 
+    
+    {/* SAYFA İÇERİĞİ SLOT'U */}
+    {/* Header sabit olduğu için içerik başlangıcına boşluk bırakılmalıdır (pt-16) */}
+    <main >
+        <slot />
+    </main>
+    
+    {/* FOOTER BİLEŞENİ BURADA KULLANILIYOR */}
+    <Footer client:load /> 
+
+</body>
+</html>

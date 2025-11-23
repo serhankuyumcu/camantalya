@@ -1,0 +1,85 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { ArrowRight, User, Calendar } from 'lucide-react';
+
+// Tüm postları çekiyoruz
+const allPosts = await getCollection('posts');
+
+// En yeni postlar en başta olacak şekilde sıralıyoruz
+const sortedPosts = allPosts.sort((a, b) => {
+    // pubDate'leri karşılaştırarak sıralama
+    return new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime();
+});
+
+// Layout için meta bilgileri belirliyoruz
+const pageTitle = "Blog | Cam Balkon Çözümleri ve Fiyatları";
+const pageDescription = "Antalya Cam'ın en güncel blog yazıları, cam balkon sistemleri, kış bahçesi trendleri ve sektördeki önemli gelişmeler.";
+const pageKeywords = "cam balkon blog, cam balkon sistemleri, kış bahçesi, antalya, fiyatları"; // Eksik olan 'keywords' prop'u eklendi
+
+---
+<Layout title={pageTitle} description={pageDescription} keywords={pageKeywords}>
+    <div class="pt-24 pb-20 bg-gray-50 font-sans min-h-screen">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <h1 class="text-5xl font-extrabold text-gray-900 mb-6 text-center">
+                Blog Yazıları
+            </h1>
+            <p class="text-xl text-gray-600 mb-12 text-center max-w-2xl mx-auto">
+                Cam balkon sistemleri, fiyatları, montaj ipuçları ve en son teknolojiler hakkında güncel bilgiler.
+            </p>
+
+            <div class="space-y-12">
+                {sortedPosts.map((post) => {
+                    const postDate = new Date(post.data.pubDate);
+                    const formattedDate = postDate.toLocaleDateString('tr-TR');
+                    const isoDate = postDate.toISOString();
+
+                    return (
+                        <article class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border-t-4 border-blue-500">
+                            {/* Kapak Görseli */}
+                            <div class="relative h-64 w-full">
+                                <img
+                                    src={post.data.heroImage || 'https://placehold.co/1200x600/CCCCCC/333333?text=Gorsel+Yok'}
+                                    alt={`Kapak görseli: ${post.data.title}`}
+                                    class="w-full h-full object-cover"
+                                />
+                            </div>
+
+                            <div class="p-6 md:p-8">
+                                {/* Meta Bilgileri */}
+                                <div class="flex items-center space-x-4 text-sm text-gray-500 mb-2">
+                                    <div class="flex items-center">
+                                        <Calendar className="w-4 h-4 mr-1 text-blue-600" />
+                                        <time datetime={isoDate}>{formattedDate}</time>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <User className="w-4 h-4 mr-1 text-blue-600" />
+                                    </div>
+                                </div>
+
+                                {/* Başlık ve Açıklama */}
+                                <h2 class="text-3xl font-bold text-gray-900 mb-3">
+                                    {post.data.title}
+                                </h2>
+                                <p class="text-gray-600 mb-5 line-clamp-3">
+                                    {post.data.description}
+                                </p>
+
+                                {/* Detay Linki */}
+                                <a 
+                                    href={`/blog/${post.slug}`} 
+                                    class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors group"
+                                >
+                                    Yazıyı Oku
+                                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                                </a>
+                            </div>
+                        </article>
+                    );
+                })}
+            </div>
+            
+        </div>
+    </div>
+</Layout>

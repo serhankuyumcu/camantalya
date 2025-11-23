@@ -1,0 +1,33 @@
+  ---
+  import Layout from "../layouts/Layout.astro";
+  // Header ve Footer importları kaldırıldı çünkü Layout'ta zaten mevcutlar.
+  // import { Header } from "../components/Header"; // LAYOUT'TA ZATEN VAR, KALDIRILDI
+  import { Hero } from "../components/Hero";
+  import { Services } from "../components/Services";
+  import { Brands } from "../components/Brands";
+  // import { Footer } from "../components/Footer"; // LAYOUT'TA ZATEN VAR, KALDIRILDI
+  import { FloatingButtons } from "../components/FloatingButtons";
+
+  // Anasayfa için özel meta bilgileri
+  const title = "Antalya Cam Balkon & PVC Sistemleri";
+  const description = "Antalya ve çevresinde en kaliteli katlanır cam balkon, sürme sistemler ve kış bahçesi çözümleri.";
+  const keywords = "antalya cam balkon, kış bahçesi antalya, katlanır cam sistemleri, pvc sistemleri";
+
+  ---
+
+  <Layout title={title} description={description} keywords={keywords}>
+    {/* TEKRAR EDEN HEADER ÇAĞRISI KALDIRILDI! */}
+    {/* <Header client:load /> */} 
+    
+    {/* Sayfada olması gereken ve Layout'ta olmayan bileşenler buraya eklenir: */}
+    <FloatingButtons client:load />
+
+    {/* main etiketini kaldırdık, çünkü Layout'un içindeki <main> etiketi (slot'u çevreleyen) zaten bu içeriği sarıyor. */}
+    <div>
+      <Hero client:load />
+      <Services client:load />
+      <Brands client:load />
+      {/* TEKRAR EDEN FOOTER ÇAĞRISI KALDIRILDI! */}
+      {/* <Footer client:load /> */}
+    </div>
+  </Layout>

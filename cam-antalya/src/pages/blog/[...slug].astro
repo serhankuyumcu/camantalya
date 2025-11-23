@@ -1,0 +1,156 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+// React Bileşenleri
+import { ArrowLeft, User, Calendar } from 'lucide-react'; 
+
+// post.render() ile Content'i çekiyoruz
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+
+export async function getStaticPaths() {
+    const posts = await getCollection('posts');
+    return posts.map((post) => ({
+        params: { slug: post.slug },
+        props: { post },
+    }));
+}
+
+
+// Tarih Formatlama
+const rawDate = post.data.pubDate;
+// JavaScript Date objesinin toLocaleDateString kullanımı
+const formattedDate = new Date(rawDate).toLocaleDateString('tr-TR', { year: 'numeric', month: 'long', day: 'numeric' });
+
+// Meta Bilgileri
+const title = post.data.title;
+const description = post.data.description;
+
+// keywords'ü string[]'den tek string'e çeviriyoruz.
+const keywords = Array.isArray(post.data.keywords) 
+    ? post.data.keywords.join(', ')
+    : post.data.keywords || '';
+    
+// Tarih nesnesini ISO formatına dönüştürüyoruz, ki bu HTML datetime özelliği için gereklidir.
+const isoDate = new Date(rawDate).toISOString();
+    
+---
+<Layout title={title} description={description} keywords={keywords}>
+    <div class="pt-24 pb-20 bg-gray-50 font-sans min-h-screen">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            {/* Geri Dön Butonu */}
+            <a href="/blog" class="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors mb-8">
+                {/* React bileşeni: className kullanılır */}
+                <ArrowLeft className="w-5 h-5 mr-1" />
+                Tüm Yazılara Geri Dön
+            </a>
+
+            {/* Blog Başlık ve Meta Bilgileri */}
+            <header class="mb-10 p-6 bg-white rounded-xl shadow-lg border-t-4 border-blue-600">
+                <h1 class="text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
+                    {post.data.title}
+                </h1>
+                <p class="text-gray-600 mb-4">{post.data.description}</p>
+                
+                <div class="flex items-center space-x-4 text-gray-500 text-sm">
+                    <div class="flex items-center">
+                        {/* React bileşeni: className kullanılır */}
+                        <User className="w-4 h-4 mr-1 text-blue-600" /> 
+                    </div>
+                    <div class="flex items-center">
+                        {/* React bileşeni: className kullanılır */}
+                        <Calendar className="w-4 h-4 mr-1 text-blue-600" />
+                        {/* HATA ÇÖZÜMÜ: HTML <time> etiketi için doğru özellik "datetime"dir. */}
+                        <time datetime={isoDate}>{formattedDate}</time>
+                    </div>
+                </div>
+            </header>
+
+            {/* Kapak Görseli */}
+            {post.data.heroImage && (
+                <div class="mb-10 rounded-xl overflow-hidden shadow-xl">
+                    <img
+                        src={post.data.heroImage}
+                        alt={`Kapak görseli: ${post.data.title}`}
+                        class="w-full h-auto object-cover max-h-96"
+                        onerror="this.onerror=null; this.src='https://placehold.co/1200x400/CCCCCC/333333?text=Gorsel+Bulunamadi';"
+                    />
+                </div>
+            )}
+
+            {/* Blog İçeriği (Markdown'dan Oluşturulan) */}
+            <article class="prose max-w-none bg-white p-6 md:p-10 rounded-xl shadow-lg article-content">
+                <Content />
+            </article>
+
+            {/* YENİ İLETİŞİM (CTA) BÖLÜMÜ */}
+            <section class="mt-12 p-8 bg-blue-100 border-l-4 border-blue-600 rounded-xl shadow-md flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div class="max-w-xl">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-2">
+                        Projeniz mi Var?
+                    </h2>
+                    <p class="text-blue-800 text-lg">
+                        Bu makalede okuduklarınız ışığında bir projeye mi ihtiyacınız var? Hemen teklif alın ve dijital yolculuğunuza başlayalım.
+                    </p>
+                </div>
+                <a 
+                    href="/#footer" 
+                    class="w-full sm:w-auto px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-700 transition-colors duration-300 transform hover:scale-105 text-center whitespace-nowrap"
+                >
+                    Teklif Alın
+                </a>
+            </section>
+
+        </div>
+    </div>
+</Layout>
+
+<style>
+    /* Bu CSS, Markdown içeriği daha okunaklı ve kurumsal hale getirir.
+      Tailwind'in varsayılan 'prose' stilleri üzerine inşa edilmiştir.
+    */
+    .article-content {
+        color: #374151; /* Koyu gri metin */
+        line-height: 1.75; /* Okunabilirlik için satır aralığı */
+        font-size: 1.125rem; /* Paragraf metni */
+    }
+
+    /* Başlık stilleri (h2 ve h3'ler için daha kurumsal görünüm) */
+    .article-content :global(h2), 
+    .article-content :global(h3) {
+        color: #1f2937; /* Daha koyu başlık rengi */
+        font-weight: 700;
+        margin-top: 2.5rem; /* Üstten daha fazla boşluk */
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .article-content :global(h2) {
+        font-size: 1.875rem; /* 3xl */
+        border-bottom: 2px solid #eff6ff; /* Hafif ayırıcı çizgi */
+    }
+
+    .article-content :global(h3) {
+        font-size: 1.5rem; /* 2xl */
+        color: #1D4ED8; /* Mavi tonu */
+    }
+
+    /* Paragraf ve Liste Boşlukları */
+    .article-content :global(p),
+    .article-content :global(ul),
+    .article-content :global(ol) {
+        margin-bottom: 1.5rem;
+    }
+
+    .article-content :global(ul) {
+        list-style-type: disc;
+        padding-left: 1.5rem;
+    }
+
+    .article-content :global(li) {
+        margin-bottom: 0.5rem;
+    }
+</style>
+---
