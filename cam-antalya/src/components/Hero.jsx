@@ -8,7 +8,7 @@ export function Hero() {
       <div className="absolute inset-0">
         {/* Arka plan görseli - yüklenemezse gri placeholder gösterir */}
         <ImageWithFallback
-          src="/public/images/hero-bg.jpeg"
+          src="/images/hero-bg.jpeg"
           alt="Modern Cam Balkon"
           className="w-full h-full object-cover"
         />
