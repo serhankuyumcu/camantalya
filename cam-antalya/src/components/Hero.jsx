@@ -1,6 +1,8 @@
 // src/components/Hero.tsx
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ArrowRight } from "lucide-react";
+import heroImage from '../../public/images/hero-bg.jpeg';
+
 
 export function Hero() {
   return (
@@ -8,7 +10,7 @@ export function Hero() {
       <div className="absolute inset-0">
         {/* Arka plan görseli - yüklenemezse gri placeholder gösterir */}
         <ImageWithFallback
-          src="/images/hero-bg.jpeg"
+          src="{heroImage.src || heroImage}"
           alt="Modern Cam Balkon"
           className="w-full h-full object-cover"
         />
