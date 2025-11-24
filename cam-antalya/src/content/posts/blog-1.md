@@ -1,13 +1,14 @@
 ---
-title: "Cam Balkon Sistemlerinde 2025 Yılı Fiyatları ve Önemli İpuçları" 
-description: "Antalya'da cam balkon yaptırmadan önce bilmeniz gerekenler, en son sistemler ve Pimapen, Albert Genau markalarına göre fiyat karşılaştırmaları." 
-pubDate: 2025-11-01 
-heroImage: "/public/images/cam-balkon/cambalkon_13.webp"
+title: "Cam Balkon Sistemlerinde 2025 Yılı Fiyatları ve Önemli İpuçları"
+description: "Antalya'da cam balkon yaptırmadan önce bilmeniz gerekenler, en son sistemler ve Pimapen, Albert Genau markalarına göre fiyat karşılaştırmaları."
+pubDate: 2025-11-01
+heroImage: "/images/cam-balkon/cambalkon_13.webp"
 keywords:
   - cam balkon fiyatları 2024
   - antalya cam balkon
   - katlanır cam sistemleri
 ---
+
 Cam Balkon Neden Tercih Edilmeli?
 
 Cam balkonlar, yaşam alanınızı dört mevsim kullanabileceğiniz şekilde genişletmenizi sağlar. Antalya gibi nemli ve sıcak bir iklimde bile, doğru sistem seçimi ile hem ısı yalıtımı hem de toz/gürültü izolasyonu sağlanabilir.

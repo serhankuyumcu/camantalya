@@ -1,13 +1,14 @@
 ---
-title: "Katlanır Cam mı, Sürgülü Cam mı? Balkonunuza En Uygun Sistemi Seçme Rehberi" 
-description: "Antalya'nın dört mevsim yaşanabilen ikliminde balkonları yaşam alanına dönüştürmek bir lüks değil, ihtiyaçtır. Ancak cam balkon sistemine karar verirken, önünüze iki ana seçenek çıkar: Katlanır Cam Balkon ve Sürgülü Cam Balkon sistemleri." 
-pubDate: 2025-06-01 
-heroImage: "/public/images/blog/blog-2.jpg"
+title: "Katlanır Cam mı, Sürgülü Cam mı? Balkonunuza En Uygun Sistemi Seçme Rehberi"
+description: "Antalya'nın dört mevsim yaşanabilen ikliminde balkonları yaşam alanına dönüştürmek bir lüks değil, ihtiyaçtır. Ancak cam balkon sistemine karar verirken, önünüze iki ana seçenek çıkar: Katlanır Cam Balkon ve Sürgülü Cam Balkon sistemleri."
+pubDate: 2025-06-01
+heroImage: "/images/blog/blog-2.jpg"
 keywords:
   - cam balkon sistemleri
   - antalya katlanır cam sistemleri
   - antalya sürgülü cam sistemleri
 ---
+
 Katlanır Cam mı, Sürgülü Cam mı? Balkonunuza En Uygun Sistemi Seçme Rehberi
 
 Antalya'nın dört mevsim yaşanabilen ikliminde balkonları yaşam alanına dönüştürmek bir lüks değil, ihtiyaçtır. Ancak cam balkon sistemine karar verirken, önünüze iki ana seçenek çıkar: Katlanır Cam Balkon ve Sürgülü Cam Balkon sistemleri.

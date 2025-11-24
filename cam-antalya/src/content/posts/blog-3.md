@@ -2,16 +2,15 @@
 title: "Cam Balkon Sistemlerinde 2025 Yılı Fiyatları ve Önemli İpuçları"
 description: "Antalya'da cam balkon yaptırmadan önce bilmeniz gerekenler, en son sistemler ve Pimapen, Albert Genau markalarına göre fiyat karşılaştırmaları."
 pubDate: 2025-04-03
-heroImage: "/public/images/blog/blog-3.webp"
+heroImage: "/images/blog/blog-3.webp"
 keywords:
+  - cam balkon fiyatları
 
-- cam balkon fiyatları 
+  - antalya cam balkon
 
-- antalya cam balkon
-
-- katlanır cam sistemleri
-
+  - katlanır cam sistemleri
 ---
+
 Cam Balkon Sistemlerinde 2025 Yılı Fiyatları ve Önemli İpuçları
 
 Antalya'nın yoğun güneşi, nemli iklimi ve rüzgar koşulları, balkonları dış etkenlere karşı koruma ihtiyacını artırır. Cam balkon sistemleri, bu korumayı sağlarken, aynı zamanda yaşam alanınızı dört mevsim kullanabileceğiniz şık bir ek odaya dönüştürür. 2025 yılı fiyatlarını ve doğru sistem seçiminde dikkat etmeniz gereken kritik noktaları aşağıda bulabilirsiniz.
@@ -62,7 +61,7 @@ En Çok Sorulan Sorular
 
 Isı Yalıtımı: Doğru ısıcam (çift cam) ve kaliteli alüminyum profil kullanıldığında mükemmel yalıtım elde edilir. Tek camlı sistemler sadece rüzgar ve toz izolasyonu sağlar, ısı yalıtımı için yetersiz kalır.
 
-Marka Seçimi: * Albert Genau daha çok katlanır ve giyotin gibi alüminyum cam sistemlerinde teknoloji ve dayanıklılık ile öne çıkar.
+Marka Seçimi: \* Albert Genau daha çok katlanır ve giyotin gibi alüminyum cam sistemlerinde teknoloji ve dayanıklılık ile öne çıkar.
 
 Winsa ve Pimapen ise klasik PVC pencere sistemlerinin lideridir ve bu markaların ürünleri balkonun tamamen PVC ile kapatıldığı çözümlerde daha yaygındır.
 
