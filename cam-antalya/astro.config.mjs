@@ -10,12 +10,11 @@ export default defineConfig({
   integrations: [react()],
   
   // Vercel adaptörü: Bu, vercel'e dağıtım için gereklidir, ancak statik modu zorlayacağız.
-  adapter: vercel({
+  //adapter: vercel({
     // Vercel'i de statik çıktı için yapılandırıyoruz
-    webAnalytics: true,
-    speedInsights: true,
-  }),
-
+    //webAnalytics: true,
+    //speedInsights: true,
+  //}),
   // Projenin derleneceği dizini belirtir (varsayılan 'dist')
   outDir: './dist',
 });
